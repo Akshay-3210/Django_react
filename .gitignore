@@ -1,0 +1,13 @@
+.env
+.env.*
+!.env.sample
+**/.env
+**/.env.*
+!**/.env.sample
+__pycache__/
+*.py[cod]
+*.sqlite3
+node_modules/
+**/node_modules/
+dist/
+**/dist/

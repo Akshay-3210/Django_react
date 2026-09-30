@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Home Page
+{% endblock %}
+
+{% block content %}
+
+<div id="react-app"></div>
+
+<script type="module">
+	const frontendDevServerUrl = "{{ frontend_dev_server_url|escapejs }}"
+	const { default: RefreshRuntime } = await import(`${frontendDevServerUrl}/@react-refresh`)
+
+	RefreshRuntime.injectIntoGlobalHook(window)
+	window.$RefreshReg$ = () => {}
+	window.$RefreshSig$ = () => (type) => type
+	window.__vite_plugin_react_preamble_installed__ = true
+	await import(`${frontendDevServerUrl}/src/main.jsx`)
+</script>
+
+{% endblock %}
